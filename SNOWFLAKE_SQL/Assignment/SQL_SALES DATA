@@ -1,0 +1,110 @@
+Use warehouse demodatabase;
+
+Use database demodatabase;
+
+Create or Replace table ST_Sales_Data
+(order_id String,
+order_date date,
+ship_date date,
+ship_mode Varchar(30),	
+customer_name Varchar(30),
+segment Varchar(20),
+state Varchar(50),
+country	Varchar(50),
+market Char(15),	
+region Varchar(30),
+product_id String,
+category Varchar2(30),
+sub_category Char(20),
+product_name String,
+sales	Varchar(15),
+quantity Varchar(20),
+discount Varchar(20),
+profit Varchar(50),
+shipping_cost Number(10,2),	
+order_priority Varchar(30),
+year char(5));
+
+Describe Table St_Sales_Data;
+
+Select * From ST_Sales_Data;
+
+
+--- Very firstly create the copy of the table
+Create or Replace table ST_Sales_Data_Copy as Select * from ST_Sales_Data;
+
+Describe Table ST_Sales_Data_Copy;
+
+Select * From ST_Sales_Data_Copy;
+
+
+--1. TASK create the primary key
+Alter Table ST_Sales_Data_Copy ADD Primary Key (ORDER_ID);
+
+--2. CHECK THE ORDER DATE AND SHIP DATE TYPE AND THINK IN WHICH DATA TYPE YOU HAVE TO CHANGE. 
+     --Already changed while loading the data and cleaning the data
+     
+--3. EXTACT THE LAST NUMBER AFTER THE '-' AND CREATE OTHER COLUMN AND UPDATE IT.
+
+Select ORDER_ID, Substr(ORDER_ID,9) AS NUMBER_ID from ST_Sales_Data_Copy;
+     
+Alter Table ST_Sales_Data_Copy Add COLUMN NUMBER_ID Number;
+
+Update ST_Sales_Data_Copy Set NUMBER_ID = Substr(ORDER_ID,9) Where NUMBER_ID is Null;
+     
+Select * From ST_Sales_Data_Copy;
+
+
+--4. FLAG ,IF DISCOUNT IS GREATER THEN 0 THEN  YES ELSE FALSE AND PUT IT IN NEW COLUMN FRO EVERY ORDER ID. 
+
+Alter Table ST_Sales_Data_Copy Add Column FLAG_DISCOUNT Varchar(15);
+
+Update ST_Sales_Data_Copy Set FLAG_DISCOUNT = 'yes' Where Discount > 0;
+Update ST_Sales_Data_Copy Set FLAG_DISCOUNT = 'False' where Discount is Null;
+Update ST_Sales_Data_Copy Set FLAG_DISCOUNT = 'False' Where Discount = 0;
+
+/* OR we can use case statement too like
+      Select *,
+         Case
+              When Discount > 0 Then 'yes'
+              Else 'False'
+         End AS FLAG_DISCOUNT
+       From Sales_data_final_data; */
+
+Select * From ST_Sales_Data_Copy;
+
+--5. FIND OUT THE FINAL PROFIT AND PUT IT IN COLUMN FOR EVERY ORDER ID.   
+     ----Profit is already given in the table
+
+--6. FIND OUT HOW MUCH DAYS TAKEN FOR EACH ORDER TO PROCESS FOR THE SHIPMENT FOR EVERY ORDER ID.
+
+Select ORDER_DATE,SHIP_DATE, datediff('day',ORDER_DATE :: Timestamp,SHIP_DATE :: Timestamp) As SHIPMENT_DAYS from ST_Sales_Data_Copy;
+
+Alter table ST_Sales_Data_Copy Add Column SHIPMENT_DAYS Number; 
+
+Update ST_Sales_Data_Copy Set SHIPMENT_DAYS = (datediff('day',ORDER_DATE :: Timestamp,SHIP_DATE :: Timestamp)) Where SHIPMENT_DAYS is Null;  
+
+/* Or if you does not want to CAST then we can use this:-
+                Update ST_Sales_Data_Copy set Shipment_days = (datediff('day',ORDER_DATE,SHIP_DATE)) --------this will also give the same result */             
+
+Select * From ST_Sales_Data_Copy;
+
+--7. FLAG THE PROCESS DAY AS BY RATING IF IT TAKES LESS OR EQUAL 3  DAYS MAKE 5,LESS OR EQUAL THAN 6 DAYS BUT MORE THAN 3 MAKE 4,LESS THAN 10 BUT MORE THAN 6 MAKE 3,MORE THAN 10 MAKE IT 2 FOR EVERY ORDER ID
+
+Alter Table ST_Sales_Data_Copy ADD Column RATINGS Number;
+Update ST_Sales_Data_Copy Set Ratings = 5 Where SHIPMENT_DAYS <= 3 ;
+Update ST_Sales_Data_Copy Set Ratings = 4 Where SHIPMENT_DAYS <= 6 AND SHIPMENT_DAYS > 3;
+Update ST_Sales_Data_Copy Set Ratings = 3 Where SHIPMENT_DAYS < 10 AND SHIPMENT_DAYS > 6;
+Update ST_Sales_Data_Copy Set Ratings = 2 Where SHIPMENT_DAYS > 10;
+Select * From ST_Sales_Data_Copy;
+
+/*or this is another method through case statement
+
+ Select *, 
+           Case
+                When SHIPMENT_DAYS < 3 Or SHIPMENT_DAYS = 3 Then 5
+                When SHIPMENT_DAYS < 6 Or SHIPMENT_DAYS = 6 AND SALES_DAYS > 3 Then 4
+                When SHIPMENT_DAYS < 10 AND SHIPMENT_DAYS > 6 Then 3
+                Else 2
+           END as RATINGS
+From ST_Sales_Data_Copy; */
