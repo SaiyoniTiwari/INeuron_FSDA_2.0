@@ -1,0 +1,239 @@
+Create or Replace Table ST_Brokers
+(Broker_ID Number,
+Broker_Code Varchar(20),
+Broker_Full_Name Varchar(50),
+Distribution_Network Varchar(50),
+Distribution_Channel Varchar(50),
+Commission_Scheme Varchar(50));
+
+Create or replace Table Brokers as Select * From ST_Brokers;    ----707 rows
+
+Select * From Brokers;
+Describe Table Brokers;
+
+--------------------------------------------------------------
+
+Create or replace Table St_Product
+(Product_ID  Number,
+Product_Category Varchar(50),
+Product_Sub_Category Varchar(50),
+Product Varchar(20));
+
+Create or replace table product as Select * from St_Product;   ---77 rows
+Describe Table product;
+Select * from product;
+
+------------------------------------------------------------------------------
+
+Create or replace table ST_Customer
+(CustomerID	Number,
+LastName Varchar(30),
+FirstName Varchar(30),
+BirthDate Date,
+Gender Char(15),
+Participant_Type Varchar(30),
+Region_ID Number,
+Marital_Status Varchar(30));
+
+Create or replace table Customer as Select * from St_customer;   ---12,305 rows
+Describe Table Customer;
+Select * from Customer;
+
+----------------------------------------------------------------------------------
+
+Create or replace table St_Priorities
+(ID Number,
+Description Varchar(20));
+Insert Into St_Priorities
+Values(1,'Urgent'),
+(2,'Non Urgent');
+
+Create or replace table Priorities as Select * from St_Priorities;   ---2 rows
+Describe Table Priorities;
+Select * from Priorities;
+
+----------------------------------------------------------------------------------
+
+
+Create or replace Table St_Status
+(ID Number,	
+Description varchar(20));
+
+Insert Into St_Status
+values (1,'OUTSTANDING'),
+(2,'NEW'),
+(3,	'IN PROGRESS'),
+(4,	'ASSIGNED TO'),
+(5,'RESOLVED'),
+(6,	'PENDING'),
+(9,	'CLOSED');
+
+Create or replace table Statuses as Select * from St_Status;   ---7 rows
+Describe Table Statuses;
+Select * from Statuses;
+
+------------------------------------------------------------------------
+
+Create or Replace table ST_Categories
+(ID Number,
+Description String,
+Active Number);
+
+
+Create or replace table Categories as Select * from ST_Categories;   ---56 rows
+Describe Table Categories;
+Select * from Categories;
+
+------------------------------------------------------------------------
+
+Create or Replace table ST_Sources
+(ID Number(9),	
+Description Varchar(30));
+
+Insert Into ST_Sources
+Values (1,'Bank Branch'),
+(2,'Tele'),
+(3,	'Bank HQ'),
+(4,'Partner'),
+(5,'Company HQ'),
+(6,'Intermediary'),
+(7,	'CRO'),
+(8,	'Call Center'),
+(9,'Bank Small Business');
+
+Create or replace table Sources as select * from St_sources;   ----9 rows
+Describe Table Sources;
+Select * from Sources;
+
+-------------------------------------------------------------------
+
+Create or replace table ST_Types
+(ID Number(12),
+Description  Varchar(30));
+
+Insert Into St_Types
+Values
+(1,'Court'),
+(2,'In person'),
+(3,	'Written'),
+(4,	'Court Order'),
+(5,	'Email'),
+(6,	'Fax'),
+(7,'Phone'),
+(8,'Call center'),
+(9,'Partner / Bank'),
+(99,'Other');
+
+Create or replace table Types as select * from St_Types;   ----10 rows
+Describe Table Types;
+Select * from Types;
+
+-----------------------------------------------------------------------------
+
+Create or replace table St_Complain_Data
+(ID Number,	
+Complain_Date Varchar(20),	
+Completion_Date Varchar(20),
+CustomerID Number,
+BrokerID Number,
+ProductID Number,
+Complain_Priority_ID Number,
+Complain_Type_ID Number,
+Complain_Source_ID Number,
+Complain_Category_ID Number,	
+Complain_Status_ID Number,
+Administrator_ID Varchar(20),	
+Client_Satisfaction	Char(20),
+Expected_Reimbursement Number);
+
+Create or replace table Complain_Data as select * from St_Complain_Data;   ----13,846 rows
+Describe Table Complain_Data;
+Select * from Complain_Data;
+
+
+-----------------------------------------------------------------------
+
+
+Create or Replace Table ST_Status_History_Data
+(ID Number,
+Complaint_ID Number,
+Complaint_Status_ID	Number,
+Status_Date Date);
+
+Create or replace table Status_History_Data as select * from ST_Status_History_Data;   ----11,558 rows
+Describe Table Status_History_Data;
+Select * from Status_History_Data;
+
+
+---------------------------------------------------------------------------------
+
+Create or replace table ST_region
+(Id Number,	
+name Varchar(40),
+county	String,
+state_code char(5),	
+state Varchar(40),
+type Varchar(30),
+latitude Float,
+longitude Float,	
+area_code char(5),		
+population Number,	
+households	Number,
+median_income Number,
+land_area Number,
+water_area	Number,
+time_zone Varchar(50));
+
+Create or replace table Region as select * from ST_region;   ----994 rows
+Describe Table Region;
+Select * from Region;
+
+----------------------------------------------------------------------------
+
+Create or replace table ST_State_region
+(State_Code Char(5),
+State Varchar(50),
+Region Varchar(20));
+
+Create or replace table State_Region as select * from ST_State_region;   ----48 rows
+Describe Table State_Region;
+Select * from State_Region;
+
+--------------------------------------------------------------------------------
+
+Select * from Complain_Data; --ID is Pk
+Select Count(Distinct ID) from Complain_data;    ----13846 Rows
+Select * from Customer; --CustomerId is PK
+Select Count(Distinct CustomerID) from Customer;     ----12305 Rows
+Select * from Priorities;     --ID is pk  --- 2 rows
+Select * from Product;         --Productid is Pk --77 rows
+Select * from Brokers;         --BrokerID is Pk -- 707 rows
+Select * from Sources;         --ID is PK ---9 rows
+Select * from Categories;         --ID is Pk -- 56 rows
+Select * from Types;              --ID is Pk -- 10 rows
+Select * from Status_History_Data;   --ID is Pk-- 11,558 rows
+Select * from region;             --ID is Pk-- 994 rows
+Select * from State_region;      --STATE_CODE is PK -- 48 rows
+ 
+Create Or Replace Table ST_Master_Customer As
+Select Com.ID,Com.Complain_Date, Com.Completion_Date,Com.CustomerID,COm.BrokerID,Com.ProductID,
+CUS.FirstName,CUS.Lastname,CUS.Gender,CUS.Region_ID,BR.Broker_Full_Name,BR.Commission_Scheme,BR.Distribution_Channel,
+PRO.Product,REG.State,SR.Region,PRI.Description as PRI_Description, SOUR.Description as SOUR_Description,SH.Complaint_ID,
+TY.Description As TY_Description, CAT.Description As CAT_Description
+--COM.*,CUS.*,SH.*,REG.*,SR.*,BR.*,CAT.*,PRI.*,PR.*,SUR.*,ST.*,TY.*
+From Complain_Data as COM 
+Left Outer Join Customer as CUS On COM.CustomerID = Cus.CustomerID
+Left Outer Join Status_History_data as SH On Com.ID = SH.ID
+Left Outer Join Region as REG On CUS.Region_ID = REG.ID
+Left Outer Join State_region AS SR On Reg.State_Code = SR.State_code
+LEFT OUTER JOIN BROKERS AS BR ON COM.BrokerID = BR.BROKER_ID
+LEFT OUTER JOIN Priorities as PRI on  Com.Complain_Priority_ID = PRI.ID
+LEFT OUTER JOIN Product as PRO On Com.ProductID = PRO.PRoduct_ID
+LEFT OUTER JOIN Sources As SOUR On Com.Complain_Source_ID = SOUR.ID
+LEFT OUTER JOIN Categories AS CAT On Com.Complain_Category_ID = CAT.ID
+LEFT OUTER JOIN Types AS TY On Com.Complain_Type_ID = TY.ID;
+
+
+Describe Table ST_Master_Customer;
+Select * from ST_Master_Customer;     --13,846 rows
+
