@@ -1,0 +1,87 @@
+1. What does the dollar($) sign do?
+
+The dollar sign in an Excel cell reference affects just one thing - it instructs Excel how to treat the reference when the formula is moved or copied to other cells. In a nutshell, using the $ sign before the row and column coordinates makes an absolute cell reference that won't allow to change.
+
+
+2. How to Change the Reference from Relative to Absolute (or Mixed)?
+
+To change the reference from relative to absolute, you need to add the dollar sign before the column notation and the row number.
+
+For example, A1 is a relative cell reference, and it would become absolute when you make it $A$1.
+
+If you only have a couple of references to change, you may find it easy to change these references manually. So you can go to the formula bar and edit the formula (or select the cell, press F2, and then change it).
+
+However, a faster way to do this is by using the keyboard shortcut – F4.
+
+When you select a cell reference (in the formula bar or in the cell in edit mode) and press F4, it changes the reference.
+
+Suppose you have the reference =A1 in a cell.
+
+Here is what happens when you select the reference and press the F4 key.
+
+Press F4 key once: The cell reference changes from A1 to $A$1 (becomes ‘absolute’ from ‘relative’).
+Press F4 key two times: The cell reference changes from A1 to A$1 (changes to mixed reference where the row is locked).
+Press F4 key three times: The cell reference changes from A1 to $A1 (changes to mixed reference where the column is locked).
+Press F4 key four times: The cell reference becomes A1 again.
+
+
+
+3. Explain the order of operations in excel?
+
+When evaluating a formula, Excel follows a standard math protocol called "order of operations". In general, Excel's order of operation follows the acronym PEMDAS (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction) but with some customization to handle the formula syntax in a spreadsheet. 
+
+First, any expressions in parentheses are evaluated. Parentheses essentially override the normal order of operations to ensure certain operations are performed first.
+
+Next, Excel will resolve references. This involves replacing cell references like A1 with the value from the cell, as well as evaluating range references like A1:A5, which become arrays of values. Other range operations like union (comma) and intersection (space) also happen at this time.
+
+Next, Excel will perform exponentiation, negation, and percent conversions (in that order), followed by multiplication and division, addition and subtraction, and concatenation. Finally, Excel will evaluate logical operators, if present.
+
+In summary, Excel solves formulas in the following order:
+
+Parentheses
+Reference operators
+Exponents
+Negation
+Percent
+Multiplication and Division
+Addition and Subtraction
+Concatenation
+Logical operators
+Note: If a formula contains multiple operators with the same priority (e.g. multiplication and division, or addition and subtraction), Excel will evaluate the operators from left to right.
+
+
+
+4. What, according to you, are the top 5 functions in excel and write a basic syntax for any of two?
+
+These are the 5 basic Excel functions that everyone should know:
+
+The VLookup Function
+The Concatenate Function
+Text to Columns
+Remove Duplicates
+Pivot Tables
+
+VLOOKUP:- 
+
+=VLOOKUP (lookup_value, table_array, col_index_number, [range_lookup])
+=VLOOKUP(What you want to look up, where you want to look for it, the column number in the range containing the value to return, return an Approximate or Exact match – indicated as 1/TRUE, or 0/FALSE)
+
+CONCATENATE:-
+
+=CONCATENATE(B2, " ", C2)
+Joins three things: the string in cell B2, a space character, and the value in cell C2.
+
+
+5. When would you use the subtotal function?
+
+The SUBTOTAL Function[1]in Excel allows users to create groups and then perform various other Excel functions such as SUM, COUNT, AVERAGE, PRODUCT, MAX, etc. Thus, the SUBTOTAL function in Excel helps in analyzing the data provided.
+
+The SUBTOTAL function is designed for columns of data, or vertical ranges. It is not designed for rows of data, or horizontal ranges.Hiding a column does not affect the subtotal. But, hiding a row in a subtotal of a vertical range does affect the subtotal.
+
+
+
+6. What is the syntax of the vlookup function? Explain the terms in it?
+
+=VLOOKUP (lookup_value, table_array, col_index_number, [range_lookup])
+
+=VLOOKUP(What you want to look up, where you want to look for it, the column number in the range containing the value to return, return an Approximate or Exact match – indicated as 1/TRUE, or 0/FALSE)
