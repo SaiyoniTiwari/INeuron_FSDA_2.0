@@ -1,0 +1,59 @@
+1. To use the ribbon commands, what menu and grouping of commands will you find the Insert and Delete command?
+
+
+->First, click on the cell below where you want to add a cell (in our example, this is B14, or the total).
+->Then, go to the Home menu in the ribbon.
+->And look in the Cells grouping of commands.
+->Click on the More icon to the Insert command (it's the upside-down triangle).
+->Click on Insert more arrow then insert cell/Insert sheet row/Insert sheet column /Insert Sheet to use the command.
+->Click on the More icon to the Delete command (it's the upside-down triangle)
+->Click on Delete more arrow then delete cell/Delete sheet row/Delete sheet column /Delete Sheet to use the command.
+
+
+2. If you set a row height or column width to 0 (zero), what happens to the row and column?
+
+
+It sets to the default width or height. It asks for a new value. It hides the row or column.
+
+
+
+3. Is there a need to change the height and width in a cell? Why?
+
+After creating a table, all the rows and columns are of the same size. When entering information in a table, then some rows and columns are not large enough to properly display the information they contain, then it is necessary to change the width and height of table.
+
+
+
+4. What is the keyboard shortcut to unhide rows?
+
+To unhide one or more rows, highlight at least one cell in the rows on either side of the hidden row(s) with the mouse pointer. For example, you want to unhide rows 2, 4, and 6.
+
+To unhide all rows, click and drag with the mouse to highlight rows 1 to 7.
+
+Press and hold down the Ctrl and the Shift keys on the keyboard.
+
+Press and release the number 9 key without releasing the Ctrl and Shift keys. The hidden row(s) will become visible.
+
+
+
+5. How to hide rows containing blank cells?
+
+On the Home tab, in the Editing group, click Find & Select > Go To Special. In the Go To Special dialog box, select the Blanks radio button, and click OK. This will select all empty cells in the range. Press Ctrl + 9 to hide the corresponding rows.
+
+or Select the rows press right click on the mouse and click hide.
+
+
+
+6. What are the steps to hide the duplicate values using conditional formatting in
+excel?
+
+1. Select the range you want to hide duplicates. Here I select range A1:F11.
+
+2. Then click Conditional Formatting > Highlight Cells Rules > Duplicate Values under Home tab. See screenshot.
+
+3. In the Duplicate Values dialog box, select Custom Format in the values with drop-down list, and then click the OK button.
+
+4. In the Format Cells dialog box, go to the Font tab, and in the Color drop-down list, choose a font color which matches the background color of your selected range cell. And finally click the OK button. See screenshot.
+
+5. When it returns to the Duplicate Values dialog box, click the OK button.
+
+Now all duplicate records in selected columns are hidden immediately.
