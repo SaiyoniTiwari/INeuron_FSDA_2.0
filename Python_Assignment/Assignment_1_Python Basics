@@ -1,0 +1,70 @@
+1. In the below elements which of them are values or an expression? eg:- values can be integer or string and expressions will be mathematical operators. 
+
+Ans) 
+
+*: expression 
+
+'hello': value 
+
+-87.8: value 
+
+-: expression 
+
+/: expression 
+
+6: value
+
+2.What is the difference between string and variable?
+
+Ans) Variables are symbols that you can use to store data in a program. You can think of them as an empty box that you fill with some data or value. Strings are data, so we can use them to fill up a variable.
+
+3. Describe three different data types.
+
+Ans) Each programming language uses a different combination of data types. Some of these types include:
+
+(i) Integer
+Integer data types often represent whole numbers in programming. An integer's value moves from one integer to another without acknowledging fractional numbers in between. The number of digits can vary based on the device, and some programming languages may allow negative values.
+
+(ii) String
+A string data type is a combination of characters that can be either constant or variable. This often incorporates a sequence of character data types that result in specific commands depending on the programming language. Strings can include both upper and lowercase letters, numbers and punctuation.
+
+(iii) Boolean
+Boolean data is what programmers use to show logic in code. It's typically one of two values—true or false—intended to clarify conditional statements. These can be responses to "if/when" scenarios, where code indicates if a user performs a certain action. When this happens, the Boolean data directs the program's response, which determines the next code in the sequence.
+
+4. What is an expression made up of? What do all expressions do?
+
+Ans) An expression is a construct made up of variables, operators, and method invocations, which are constructed according to the syntax of the language, that evaluates to a single value.
+
+5. This assignment statements, like spam = 10. What is the difference between an expression and a statement?
+
+Ans) The Main Differences Between an Expression and a Statement in Programming. Expressions can be assigned or used as operands, while statements can only be declared. Statements create side effects to be useful, while expressions are values or execute to values
+
+An expression evaluates to a single value. A statement does not.
+
+6. After running the following code, what does the variable bacon contain?
+bacon = 22
+bacon + 1
+
+Ans) The bacon variable is set to 20. The bacon + 1 expression does not reassign the value in bacon (that would need an assignment statement: bacon = bacon + 1) then bacon will be 23.
+
+7. What should the values of the following two terms be?
+'spam' + 'spamspam'
+'spam' * 3
+
+Ans) Both expressions evaluate to the string 'spamspamspam'
+
+
+8. Why is eggs a valid variable name while 100 is invalid? 
+
+Ans) Because variable names cannot begin with a number.
+
+9. What three functions can be used to get the integer, floating-point number, or string
+version of a value?
+
+Ans) The int(), float(), and str() functions will evaluate to the integer, floating-point number, and string versions of the value passed to them.
+
+
+10. Why does this expression cause an error? How can you fix it?
+'I have eaten' + 99 + 'burritos.'
+
+Ans) The expression causes an error because 99 is an integer, and only strings can be concatenated to other strings with the + operator. The correct way is 'I have eaten ' + str(99) + ' burritos.'.
