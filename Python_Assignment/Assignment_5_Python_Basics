@@ -1,0 +1,98 @@
+1. What does an empty dictionary's code look like?
+
+Ans) dict = {}
+     type(dict)
+     
+dict
+
+
+2. What is the value of a dictionary value with the key 'foo' and the value 42?
+
+Ans) {'foo':42}   
+     
+{'foo': 42}
+
+
+3. What is the most significant distinction between a dictionary and a list?
+
+Ans) Most significant difference:
+List - items in list are Ordered
+Dictionary : iten in dictionary are unordered
+
+4. What happens if you try to access spam['foo'] if spam is {'bar': 100}?
+
+Ans) spam = {'bar':100}
+     spam['foo']
+#This will give us key error
+     
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+<ipython-input-3-ea2a9c778d47> in <module>()
+      1 
+      2 spam = {'bar':100}
+----> 3 spam['foo']
+      4 #This will give us key error
+
+KeyError: 'foo'
+
+
+5. If a dictionary is stored in spam, what is the difference between the expressions 'cat' in spam and 'cat' in spam.keys()?
+
+Ans) spam ={'cat':100}
+     'cat' in spam
+     
+True
+
+'cat' in spam.keys()
+#There is no differnce, both check if 'cat' is key of the dictionary and if its a key, returns True.
+     
+True
+
+
+6. If a dictionary is stored in spam, what is the difference between the expressions 'cat' in spam and 'cat' in spam.values()?
+
+Ans) spam ={'cat':100}
+     'cat' in spam
+     
+True
+
+    spam ={'cat':100}
+    'cat' in spam.values()
+
+#'cat' in spam checks whether there is a 'cat' key in the dictionary
+#'cat' in spam.values() checks whether there is a value 'cat' for one of the keys in spam.
+     
+False
+
+
+7. What is a shortcut for the following code?
+
+Ans) spam ={'cat':100}
+     spam.setdefault('color','black')
+     spam
+   
+{'cat': 100, 'color': 'black'}
+
+
+8. How do you 'pretty print' dictionary values using which module and function?
+
+Ans) import pprint
+     dct = [ {'Name': 'Shiva', 'Age': '23', 'Country': 'India'},
+         {'Name': 'Anna', 'Age': '44', 'Country': 'China'},
+         {'Name': 'Joe', 'Age': '29', 'Country': 'UK'},
+         {'Name': 'Chumlee', 'Age': '35', 'Country': 'USA'}
+]
+     
+
+# printing with pprint()
+pprint.pprint(dct)
+     
+[{'Age': '23', 'Country': 'India', 'Name': 'Shiva'},
+ {'Age': '44', 'Country': 'China', 'Name': 'Anna'},
+ {'Age': '29', 'Country': 'UK', 'Name': 'Joe'},
+ {'Age': '35', 'Country': 'USA', 'Name': 'Chumlee'}]
+
+#Printing with print()
+print(dct_arr)
+     
+[{'Name': 'Shiva', 'Age': '23', 'Country': 'India'}, {'Name': 'Anna', 'Age': '44', 'Country': 'China'}, {'Name': 'Joe', 'Age': '29', 'Country': 'UK'}, {'Name': 'Chumlee', 'Age': '35', 'Country': 'USA'}]
