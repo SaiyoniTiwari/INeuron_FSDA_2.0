@@ -1,0 +1,74 @@
+1. Using Insert Function, give examples of any function available in the
+different dropdowns present in the function library. For example
+AutoSum, Recently Used, Text, Date & Time, etc.
+
+Ans) Use the Insert Function dialog box to help you insert the correct formula and arguments for your needs. (To view the Insert Function dialog box,click.
+
+Search for a function:
+
+Type a brief description of what you want a function to do, and then choose Go. A list of functions likely to fit your needs and based on your description will display in the Select a function box.
+
+Or select a category:
+
+From the drop-down list, do one of the following:
+
+-Select Most Recently Used. Functions you have inserted in the recent past will display in alphabetical order in the Select a function box.
+
+-Select a function category. Functions in that category will display in alphabetical order in the Select a function box.
+
+-Select All. Every function will display in alphabetical order in the Select a function box.
+
+Select a function:- Do one of the following:
+
+-Click a function name to see the function syntax and a brief description immediately below the Select a function box.
+
+-Double-click a function name to display the function and its arguments in the Function Arguments wizard, which helps you add correct arguments.
+
+
+2. What are the different ways you can select columns and rows?
+
+Ans) Select one or more rows and columns:-
+
+1) Select the letter at the top to select the entire column. Or click on any cell in the column and then press Ctrl + Space.
+2) Select the row number to select the entire row. ...
+3) To select non-adjacent rows or columns, hold Ctrl and select the row or column numbers.
+4) Select the cell then press ctrl + Shift + arrow button(left/right/up/down)- in whichever you want to select the row or column
+
+
+3. What is AutoFit and why do we use it?
+
+Ans) Excel's AutoFit feature is designed to automatically resize cells in a worksheet to accommodate different sized data without having to manually change the column width and row height. AutoFit Column Width - changes the column width to hold the largest value in the column.
+
+
+4. How can you insert new rows and columns into the existing table? 
+
+Ans) Click in a cell to the left or right of where you want to add a column. Under Table Tools, on the Layout tab, do one of the following: To add a column to the left of the cell, click Insert Left in the Rows and Columns group. To add a column to the right of the cell, click Insert Right in the Rows and Columns group.
+
+
+5. How do you hide and unhide columns in excel?
+
+Ans) Go to the Home tab > Cells group, and click Format > Hide & Unhide > Unhide columns.
+
+
+6. Create an appropriate table within the worksheet and use different
+functions available in the AutoSum command.
+
+Ans) The AutoSum button is available in 2 locations on the Excel ribbon.
+
+1) Home tab > Editing group > AutoSum
+
+2) Formulas tab > Function Library group > AutoSum
+
+Whenever you need to sum a single range of cells, whether a column, row or several adjacent columns or rows, you can have Excel AutoSum to automatically make an appropriate SUM formula for you.
+
+To use AutoSum in Excel, just follow these 3 easy steps:
+
+1) Select a cell next to the numbers you want to sum:
+-To sum a column, select the cell immediately below the last value in the column.
+-To sum a row, select the cell to the right of the last number in the row.
+
+2) Click the AutoSum button on either the Home or Formulas tab.
+-A Sum formula appears in the selected cell, and a range of cells you're adding gets highlighted 
+
+3) Press the Enter key to complete the formula.
+Now, you can see the calculated total in the cell, and the SUM formula in the formula bar.
