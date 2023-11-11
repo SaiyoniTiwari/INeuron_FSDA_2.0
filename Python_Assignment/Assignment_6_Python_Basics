@@ -1,0 +1,133 @@
+1. What are escape characters, and how do you use them?
+
+Ans) In Python strings, the backslash "" is a special character, also called the "escape" character. It is used in representing certain whitespace characters: "\t" is a tab, "\n" is a newline, and "\r" is a carriage return
+
+print("my \
+name \
+is")
+     
+my name is
+
+
+2. What do the escape characters n and t stand for?
+
+Ans) "\t" is a tab, "\n" is a newline
+
+
+3. What is the way to include backslash characters in a string?
+
+Ans) print('its a back slash \ in a line')
+  
+its a back slash \ in a line
+
+
+4. The string "Howl's Moving Castle" is a correct value. Why isn't the single quote character in the word Howl's not escaped a problem?
+
+Ans) The single quote in Howl's is fine because you've used double quotes to mark the beginning and end of the string. like wise we can use double quotes in with single quotes
+
+print("HowI's Moving Castle")
+     
+HowI's Moving Castle
+
+# like wise we can use double quote in side single quote
+print('Its a "Nice" Day')
+     
+Its a "Nice" Day
+
+
+5. How do you write a string of newlines if you don't want to use the n character?
+
+Ans) print("printing something in new line",end = '\n')
+     print("newline")
+     
+printing something in new line
+newline
+
+
+6. What are the values of the given expressions?
+
+Ans) 'Hello, world!'[1] 'Hello, world!'[0:5] 'Hello, world!'[:5] 'Hello, world!'[3:]
+
+
+'Hello, world!'[1]
+     
+'e'
+
+'Hello, world!'[0:5]
+     
+'Hello'
+
+'Hello, world!'[:5]
+     
+'Hello'
+
+'Hello, world!'[3:]
+     
+'lo, world!'
+
+
+7. What are the values of the following expressions?
+
+Ans) 'Hello'.upper() 'Hello'.upper().isupper() 'Hello'.upper().lower()
+
+
+'Hello'.upper()
+     
+'HELLO'
+
+'Hello'.upper().isupper()
+     
+True
+
+'Hello'.upper().lower()
+     
+'hello'
+
+
+8. What are the values of the following expressions?
+
+Ans) 'Remember, remember, the fifth of July.'.split() '-'.join('There can only one.'.split())
+
+
+'Remember, remember, the fifth of July.'.split()
+     
+['Remember,', 'remember,', 'the', 'fifth', 'of', 'July.']
+
+
+'-'.join('There can only one.'.split())
+    
+'There-can-only-one.'
+
+
+9. What are the methods for right-justifying, left-justifying, and centering a string?
+
+Ans) # left justified
+     str ="Shiva"
+     str.ljust(10,"-")
+    
+'Shiva-----'
+
+# right justified
+str ="My name is"
+str.rjust(40,'*')
+     
+'******************************My name is'
+
+# center justified
+str ="My name is"
+str.center(40,'*')
+     
+'***************My name is***************'
+
+
+10.. What is the best way to remove whitespace characters from the start or end?
+
+Ans) str ="  gfgfgfgfgfgfgf yuyuyuuyuy  "
+     str.lstrip()
+     
+'gfgfgfgfgfgfgf yuyuyuuyuy  '
+
+str ="  yytytytyyt mmamamam  "
+str.rstrip()
+     
+'  yytytytyyt mmamamam'
